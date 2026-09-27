@@ -17,7 +17,6 @@
 --muted:#9d9d9d;
 --line:#292929;
 --accent:#ffb000;
---accent2:#ffd36b;
 --max:1180px
 }
 
@@ -316,8 +315,6 @@ margin:0 0 10px
 color:var(--muted)
 }
 
-/* SOCIAL LINKS */
-
 .socials{
 display:flex;
 align-items:center;
@@ -377,46 +374,6 @@ text-align:center;
 font-size:13px
 }
 
-.admin{
-background:#0d0d0d;
-border-top:1px solid var(--line)
-}
-
-.adminbox{
-max-width:var(--max);
-margin:auto;
-padding:60px 24px
-}
-
-.adminbar{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:25px
-}
-
-.upload{
-border:1px dashed #555;
-border-radius:16px;
-padding:32px;
-text-align:center;
-background:#111
-}
-
-.upload input{
-margin-top:16px
-}
-
-.notice{
-color:#888;
-font-size:13px;
-line-height:1.6
-}
-
-.hidden{
-display:none!important
-}
-
 @media(max-width:800px){
 
 .links{
@@ -432,7 +389,8 @@ padding-top:70px
 display:none
 }
 
-.workgrid,.services{
+.workgrid,
+.services{
 grid-template-columns:1fr 1fr
 }
 
@@ -453,7 +411,8 @@ margin-top:20px
 
 @media(max-width:520px){
 
-.workgrid,.services{
+.workgrid,
+.services{
 grid-template-columns:1fr
 }
 
@@ -498,7 +457,9 @@ SURaj<span>Skyline</span>
 <a href="#contact">Contact</a>
 </div>
 
-<a class="btn primary" href="#contact">Hire Me</a>
+<a class="btn primary" href="#contact">
+Hire Me
+</a>
 
 </div>
 </nav>
@@ -578,7 +539,7 @@ Edits worth watching.
 </div>
 
 <p>
-A curated portfolio designed to put your strongest work first. More projects can be added from the owner dashboard.
+A curated portfolio designed to put your strongest work first.
 </p>
 
 </div>
@@ -739,7 +700,7 @@ Available for remote freelance editing projects.
 
 <div class="socials">
 
-<!-- Instagram icon -->
+<!-- Instagram -->
 <a
 class="social-icon"
 href="https://www.instagram.com/surajsetsky/"
@@ -755,7 +716,7 @@ aria-label="Instagram"
 </a>
 
 
-<!-- YouTube icon -->
+<!-- YouTube -->
 <a
 class="social-icon"
 href="https://www.youtube.com/@surajskyline"
@@ -782,7 +743,7 @@ Fiverr
 </a>
 
 
-<!-- Email -->
+<!-- Gmail -->
 <a
 class="email-link"
 href="mailto:surajskyline21@gmail.com"
@@ -801,63 +762,6 @@ href="mailto:surajskyline21@gmail.com"
 >
 Contact Me →
 </a>
-
-</div>
-
-</section>
-
-
-<section class="admin" id="owner">
-
-<div class="adminbox">
-
-<div class="adminbar">
-
-<div>
-
-<div class="eyebrow">
-Owner area • prototype
-</div>
-
-<h2 style="margin:7px 0">
-Portfolio Manager
-</h2>
-
-</div>
-
-<button
-class="btn ghost"
-onclick="document.getElementById('adminPanel').classList.toggle('hidden')"
->
-Open / Close
-</button>
-
-</div>
-
-
-<div id="adminPanel" class="upload hidden">
-
-<h3>
-Add a portfolio project
-</h3>
-
-<p class="notice">
-This prototype demonstrates the upload workflow locally. For the final public site, this area should use authenticated cloud storage/database so uploads persist and appear for every client.
-</p>
-
-<input
-id="videoInput"
-type="file"
-accept="video/*"
->
-
-<div
-id="uploadStatus"
-class="notice"
-style="margin-top:15px"
-></div>
-
-</div>
 
 </div>
 
@@ -895,10 +799,7 @@ document.getElementById('portfolio').innerHTML=
 
 projects.map((p,i)=>`
 
-<article
-class="work"
-onclick="alert('Project viewer will open here in the production version.')"
->
+<article class="work">
 
 <div class="thumb">
 PROJECT ${String(i+1).padStart(2,'0')} • VIDEO PREVIEW
@@ -923,21 +824,6 @@ ${p.title}
 }
 
 render();
-
-
-document.getElementById('videoInput').addEventListener('change',e=>{
-
-const f=e.target.files[0];
-
-document.getElementById('uploadStatus').textContent=
-
-f
-?
-`Selected: ${f.name}. Production version will upload this to secure cloud storage and create a portfolio entry.`
-:
-'';
-
-});
 
 </script>
 
